@@ -12,7 +12,7 @@ export const generateThumbnail = async (formData) => {
         return { success: false, error: "Failed to generate thumbnail" };
     }
 };
-// Function to fetch the latest 6 thumbnails
+
 export const fetchGallery = async () => {
     try {
         const response = await axios.get(`${API_BASE_URL}/thumbnails/gallery`);
