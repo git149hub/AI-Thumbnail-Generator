@@ -1,0 +1,204 @@
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.homepage-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+    gap: 50px;
+}
+
+.left-section {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.left-section h1 {
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.left-section p {
+    font-size: 18px;
+    color: #555;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 20px;
+}
+
+.thumbnail-form {
+    width: 80%;
+    max-width: 320px;
+    padding: 20px;
+    min-height: 220px;
+}
+
+.thumbnail-form label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.thumbnail-form input,
+.thumbnail-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: #333;
+    font-size: 14px;
+    outline: none;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+.thumbnail-form button {
+    width: 100%;
+    padding: 12px;
+    background: #ff5722;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.thumbnail-form button:hover {
+    background: #e64a19;
+}
+
+.thumbnail-preview {
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+.thumbnail-preview h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.thumbnail-preview img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+.thumbnail-container {
+    position: relative;
+    /* Ensures button is positioned relative to this */
+    display: inline-block;
+    text-align: center;
+    margin-top: 30px;
+
+    width: 100%;
+    /* Ensure it takes full width */
+
+}
+
+.generate-download-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.generate-download-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 1024px) {
+    .homepage-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-section,
+    .right-section {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .thumbnail-preview img {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .left-section h1 {
+        font-size: 28px;
+    }
+
+    .left-section p {
+        font-size: 16px;
+    }
+
+    .thumbnail-form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .generate-download-btn {
+        font-size: 14px;
+        padding: 4px 6px;
+        bottom: 5px;
+        right: 5px;
+    }
+}
+
+/* Ensure button adjusts properly on small screens */
+@media (max-width: 768px) {
+    .generate-download-btn {
+        bottom: 5px;
+        right: 5px;
+        font-size: 14px;
+        padding: 4px 6px;
+    }
+}
+
+.generate-download-btn {
+    display: none;
+}

@@ -1,0 +1,41 @@
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #1a2a6c, #0074E4, #4b0082);
+
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 25px;
+}
+
+/* Logo Style */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar Links */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    margin-right: 25px;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+    background: #444;
+}
