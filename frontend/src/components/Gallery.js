@@ -10,7 +10,8 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/thumbnails/gallery");
+        // const response = await axios.get("http://localhost:5000/api/thumbnails/gallery");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/thumbnails/gallery`);
         setThumbnails(response.data.thumbnails);
       } catch (error) {
         console.error("Error fetching gallery images:", error);
