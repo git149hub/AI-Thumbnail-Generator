@@ -11,10 +11,11 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: "http://localhost:3000", // Allow frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allow necessary methods
-  allowedHeaders: ["Content-Type"], // Allow content headers
+  origin: ["http://localhost:3000", "https://thumbnail-frontend.onrender.com"], // Allow both local and deployed frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 }));
+
 
 mongoose
   .connect(process.env.MONGODB_URI)
