@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: "http://localhost:3000", // Allow frontend URL
+  origin: "https://thumbnail-generator-u0ue.onrender.com", // Allow frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"], // Allow necessary methods
   allowedHeaders: ["Content-Type"], // Allow content headers
 }));
