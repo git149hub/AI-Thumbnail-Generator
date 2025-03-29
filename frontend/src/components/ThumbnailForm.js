@@ -18,7 +18,8 @@ const ThumbnailForm = ({ setGeneratedThumbnail }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/thumbnails/generate", {
+      // const response = await axios.post("http://localhost:5000/api/thumbnails/generate", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/thumbnails/generate`, {  
         movieName: formData.movieName,
         actors: formData.actors.split(","),
         genre: formData.genre,
