@@ -46,7 +46,7 @@ const ThumbnailForm = ({ setGeneratedThumbnail }) => {
         <input type="text" name="movieName" value={formData.movieName} onChange={handleChange} required />
 
         <label>Actors (comma separated):</label>
-        <input type="text" name="actors" value={formData.actors} onChange={handleChange} required />
+        <input type="text" name="actors" value={formData.actors} onChange={handleChange} /*required*/ />
 
         <label>Genre:</label>
         <input type="text" name="genre" value={formData.genre} onChange={handleChange} required />
