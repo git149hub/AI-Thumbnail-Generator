@@ -29,9 +29,10 @@ exports.generateThumbnail = async (req, res) => {
     Scene mood and story:
     ${description}
 
-    Close-up face in foreground, epic cinematic background,
-    dust particles in air, rim lighting around subject,
-    movie poster composition, visually striking, high impact.
+    Epic cinematic poster composition,
+    dramatic action filled background, cinematic wide framing,
+    dust, fire, smoke, glowing light rays,
+    promotional blockbuster movie poster style.
     `;
 
     /* ---------------- CREATOR PROMPT ---------------- */
