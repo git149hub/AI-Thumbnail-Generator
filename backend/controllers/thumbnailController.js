@@ -63,7 +63,7 @@ exports.generateThumbnail = async (req, res) => {
       model: "stabilityai/stable-diffusion-xl-base-1.0",
       inputs: prompt,
       parameters: {
-        negative_prompt: "blurry, low resolution, cartoon, anime, painting, sketch, distorted face, extra fingers, extra limbs, bad anatomy, washed out colors, low contrast, watermark, text",
+        negative_prompt: "blurry, low resolution, cartoon, anime, painting, sketch, distorted face, extra fingers, extra limbs, bad anatomy, washed out colors, low contrast",
         num_inference_steps: 35,
         guidance_scale: 8.5,
       },
