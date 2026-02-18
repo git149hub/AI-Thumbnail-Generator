@@ -29,11 +29,13 @@ exports.generateThumbnail = async (req, res) => {
     Scene mood and story:
     ${description}
 
-    Epic cinematic poster composition,
-    Multiple main characters arranged in cinematic poster layout,
-    dramatic action filled background, cinematic wide framing,
-    dust, fire, smoke, glowing light rays,
-    promotional blockbuster movie poster style.
+    Wide cinematic movie poster scene with multiple characters visible together,
+    main characters standing powerfully in foreground,
+    ensemble cast composition,
+    no single-person portrait, no close-up face.
+
+    Epic background environment with action, fire, smoke, glowing light rays,
+    layered depth composition, promotional theatrical poster style.
     `;
 
     /* ---------------- CREATOR PROMPT ---------------- */
