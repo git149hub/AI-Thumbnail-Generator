@@ -30,6 +30,7 @@ exports.generateThumbnail = async (req, res) => {
     ${description}
 
     Epic cinematic poster composition,
+    Multiple main characters arranged in cinematic poster layout,
     dramatic action filled background, cinematic wide framing,
     dust, fire, smoke, glowing light rays,
     promotional blockbuster movie poster style.
