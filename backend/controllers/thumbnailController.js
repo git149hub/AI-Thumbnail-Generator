@@ -22,17 +22,9 @@ exports.generateThumbnail = async (req, res) => {
     sharp focus, high contrast, dramatic shadows, shallow depth of field,
     8k detailed, hyper realistic skin texture, cinematic color grading.
 
-    Main subject: ${actors.join(", ")} as powerful expressive characters.
-    Movie title theme: ${movieName}
-    Genre style: ${genre}
-
-    Scene mood and story:
-    ${description}
-
-    A high-quality YouTube thumbnail for a movie titled "${movieName}",
-    Main actors: ${actors.join(", ")} standing powerfully in foreground,
-    ensemble cast composition, Cinematic, vibrant, and engaging,
-    no single-person portrait, no close-up face.
+    A high-quality YouTube thumbnail for a movie titled "${movieName}". 
+    Genre: ${genre}. Main actors: ${actors.join(", ")}.
+    Description: ${description}. Cinematic, vibrant, and engaging.
 
     Epic background environment with action, fire, smoke, glowing light rays,
     layered depth composition, promotional theatrical poster style.
