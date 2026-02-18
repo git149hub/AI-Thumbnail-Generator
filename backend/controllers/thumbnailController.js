@@ -29,9 +29,9 @@ exports.generateThumbnail = async (req, res) => {
     Scene mood and story:
     ${description}
 
-    Wide cinematic movie poster scene with multiple characters visible together,
-    main characters standing powerfully in foreground,
-    ensemble cast composition,
+    A high-quality YouTube thumbnail for a movie titled "${movieName}",
+    Main actors: ${actors.join(", ")} standing powerfully in foreground,
+    ensemble cast composition, Cinematic, vibrant, and engaging,
     no single-person portrait, no close-up face.
 
     Epic background environment with action, fire, smoke, glowing light rays,
