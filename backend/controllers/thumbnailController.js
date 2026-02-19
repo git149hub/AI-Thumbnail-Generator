@@ -1,8 +1,13 @@
 const Thumbnail = require("../models/Thumbnail");
 const { HfInference } = require("@huggingface/inference");
+const OpenAI = require("openai");
 require("dotenv").config();
 
 const hf = new HfInference(process.env.HUGGING_FACE_TOKEN);
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 exports.generateThumbnail = async (req, res) => {
   try {
@@ -51,13 +56,30 @@ exports.generateThumbnail = async (req, res) => {
 
     /* ---------------- SMART PROMPT SWITCH ---------------- */
 
-    let prompt;
+    const prompt = actors.length > 1 ? moviePrompt : creatorPrompt;
 
-    if (actors && actors.length > 0) {
-      prompt = moviePrompt;       // Movie style
-    } else {
-      prompt = creatorPrompt;     // Creator style
-    }
+    let imageUrl;
+
+     /* ---------------- TRY OPENAI FIRST ---------------- */
+
+
+    try {
+      const openaiResult = await openai.images.generate({
+        model: "gpt-image-1",
+        prompt: prompt,
+        size: "1024x1024",
+      });
+
+      const openaiBase64 = openaiResult.data[0].b64_json;
+      imageUrl = `data:image/png;base64,${openaiBase64}`;
+
+      console.log("🔥 Image generated using OpenAI");
+
+    } catch (openaiError) {
+
+      console.log("⚠️ OpenAI failed — switching to HuggingFace");
+
+       /* ---------------- HUGGINGFACE BACKUP ---------------- */
 
     const imageBlob = await hf.textToImage({
       model: "stabilityai/stable-diffusion-xl-base-1.0",
@@ -72,7 +94,9 @@ exports.generateThumbnail = async (req, res) => {
     const arrayBuffer = await imageBlob.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const base64Image = buffer.toString("base64");
-    const imageUrl = `data:image/jpeg;base64,${base64Image}`;
+    imageUrl = `data:image/jpeg;base64,${base64Image}`;
+    console.log("🟢 Image generated using HuggingFace");
+    }  
 
     console.log("🛠 Saving to MongoDB:", { movieName, actors, genre, description, imageUrl });
 
