@@ -23,13 +23,14 @@ exports.generateThumbnail = async (req, res) => {
     /* ---------------- MOVIE PROMPT ---------------- */
 
     const moviePrompt = `
-      A cinematic YouTube thumbnail of a movie titled "${movieName}".
+      A viral and cinematic YouTube thumbnail of a movie titled "${movieName}".
 
-      Main subjects: ${actors.join(", ")}, highly detailed faces, expressive emotions, sharp focus.
+      Main subjects: ${actors.join(", ")}, highly detailed faces, expressive emotions, sharp focus, close-up face, intense emotional expressions (shock, excitement), looking directly at camera.
+.
 
       Scene: ${description}
 
-      Environment: ${genre} themed background, dramatic lighting, fire, smoke, glowing effects, depth and atmosphere.
+      Environment: ${genre} themed environment, cinematic and dramatic lighting, glowing effects, blurred background, fire, smoke, glowing effects, depth and atmosphere.
 
   Composition:
     - Close-up or mid-shot
@@ -43,6 +44,7 @@ exports.generateThumbnail = async (req, res) => {
      - High contrast lighting
      - Vibrant colors
      - HDR, 4K quality
+     - Shot with DSLR camera, 85mm portrait lens, shallow depth of field
 
     Text:
     - Bold title "${movieName}" in large cinematic font
@@ -98,9 +100,14 @@ exports.generateThumbnail = async (req, res) => {
       model: "stabilityai/stable-diffusion-xl-base-1.0",
       inputs: prompt,
       parameters: {
-        negative_prompt: "blurry, low resolution, cartoon, anime, painting, sketch, distorted face, extra fingers, extra limbs, bad anatomy, washed out colors, low contrast",
-        num_inference_steps: 35,
-        guidance_scale: 8.5,
+        negative_prompt: `
+           text, watermark, logo, blurry, low quality, bad anatomy,
+           extra fingers, extra limbs, distorted face, duplicate face,
+           cropped head, dull colors,  blurry face, out of focus, deformed eyes,
+           multiple heads, ugly face,  pixelated
+       `
+        num_inference_steps: 40,
+        guidance_scale: 7.5,
       },
     });
 
