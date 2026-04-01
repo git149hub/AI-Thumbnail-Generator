@@ -23,16 +23,29 @@ exports.generateThumbnail = async (req, res) => {
     /* ---------------- MOVIE PROMPT ---------------- */
 
     const moviePrompt = `
-    Ultra realistic cinematic movie thumbnail, professional film lighting,
-    sharp focus, high contrast, dramatic shadows, shallow depth of field,
-    8k detailed, hyper realistic skin texture, cinematic color grading.
+      A cinematic YouTube thumbnail of a movie titled "${movieName}".
 
-    A high-quality YouTube thumbnail for a movie titled "${movieName}". 
-    Genre: ${genre}. Main actors: ${actors.join(", ")}.
-    Description: ${description}. Cinematic, vibrant, and engaging.
+      Main subjects: ${actors.join(", ")}, highly detailed faces, expressive emotions, sharp focus.
 
-    Epic background environment with action, fire, smoke, glowing light rays,
-    layered depth composition, promotional theatrical poster style.
+      Scene: ${description}
+
+      Environment: ${genre} themed background, dramatic lighting, fire, smoke, glowing effects, depth and atmosphere.
+
+  Composition:
+    - Close-up or mid-shot
+    - Rule of thirds
+    - Clear subject focus
+    - Blurred background (depth of field)
+
+    Style:
+     - Ultra realistic
+     - Cinematic movie poster style
+     - High contrast lighting
+     - Vibrant colors
+     - HDR, 4K quality
+
+    Text:
+    - Bold title "${movieName}" in large cinematic font
     `;
 
     /* ---------------- CREATOR PROMPT ---------------- */
