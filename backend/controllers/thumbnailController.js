@@ -47,8 +47,7 @@ exports.generateThumbnail = async (req, res) => {
      - Shot with DSLR camera, 85mm portrait lens, shallow depth of field
 
     Text:
-    - Bold title "${movieName}" in large cinematic font
-    `;
+    - Bold title "${movieName}" in large cinematic font ` ;
 
     /* ---------------- CREATOR PROMPT ---------------- */
 
