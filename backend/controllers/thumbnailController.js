@@ -23,28 +23,33 @@ exports.generateThumbnail = async (req, res) => {
     /* ---------------- MOVIE PROMPT ---------------- */
 
     const moviePrompt = `
-      A viral and cinematic YouTube thumbnail of a movie titled "${movieName}".
+A viral YouTube thumbnail of a movie titled "${movieName}".
 
-      Main subjects: ${actors.join(", ")}, highly detailed faces, expressive emotions, sharp focus, close-up face, intense emotional expressions (shock, excitement), looking directly at camera.
-.
+Main subject: ${actors[0]}, close-up face, highly detailed, sharp focus, intense emotional expression, looking at camera.
 
-      Scene: ${description}
+Secondary characters: ${actors.slice(1).join(", ")}, smaller in background, slightly blurred, less detailed.
 
-      Environment: ${genre} themed environment, cinematic and dramatic lighting, glowing effects, blurred background, fire, smoke, glowing effects, depth and atmosphere.
+Scene: ${description}
 
-  Composition:
-    - Close-up or mid-shot
-    - Rule of thirds
-    - Clear subject focus
-    - Blurred background (depth of field)
+Background:
+${genre} themed environment, cinematic lighting, depth of field.
 
-    Style:
-     - Ultra realistic
-     - Cinematic movie poster style
-     - High contrast lighting
-     - Vibrant colors
-     - HDR, 4K quality
-     - Shot with DSLR camera, 85mm portrait lens, shallow depth of field
+Face quality:
+- ultra detailed main face
+- sharp eyes in focus
+- realistic skin texture
+- no distortion
+
+Composition:
+- main face fills most of frame
+- background characters behind or side
+- depth of field separation
+
+Style:
+- hyper realistic
+- cinematic lighting
+- high contrast
+- shot with DSLR camera, 85mm portrait lens
 
     Text:
     - Bold title "${movieName}" in large cinematic font ` ;
