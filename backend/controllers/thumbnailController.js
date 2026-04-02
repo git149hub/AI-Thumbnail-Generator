@@ -104,7 +104,7 @@ exports.generateThumbnail = async (req, res) => {
            extra fingers, extra limbs, distorted face, duplicate face,
            cropped head, dull colors,  blurry face, out of focus, deformed eyes,
            multiple heads, ugly face,  pixelated
-       `
+       `,
         num_inference_steps: 40,
         guidance_scale: 7.5,
       },
