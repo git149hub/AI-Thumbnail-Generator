@@ -101,7 +101,8 @@ Style:
        /* ---------------- HUGGINGFACE BACKUP ---------------- */
 
     const imageBlob = await hf.textToImage({
-      model: "stabilityai/stable-diffusion-xl-base-1.0",
+      // model: "stabilityai/stable-diffusion-xl-base-1.0",
+      model: "black-forest-labs/FLUX.1-schnell",
       inputs: prompt,
       parameters: {
         negative_prompt: `
