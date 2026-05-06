@@ -273,6 +273,58 @@ body {
     gap: 70px;
 }
 
+/* BETTER HERO BALANCING */
+
+.hero-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* LEFT */
+
+.hero-left {
+    flex: 1.1;
+}
+
+/* CENTER */
+
+.hero-center {
+    flex: 0.9;
+}
+
+/* RIGHT */
+
+.hero-right {
+    flex: 1;
+}
+
+/* BETTER FORM POSITION */
+
+.form-card {
+    margin-top: 20px;
+}
+
+/* BETTER FEATURE CARD SPACING */
+
+.feature-cards {
+    margin-top: 20px;
+}
+
+/* SMOOTHER ANIMATIONS */
+
+.feature-card,
+.form-card,
+.visual-card,
+.thumbnail-form button,
+.download-btn,
+.generate-download-btn {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
 /* LEFT SIDE */
 
 .hero-left {
@@ -940,5 +992,28 @@ body {
 
     .visual-screen {
         height: 170px;
+    }
+}
+
+
+/* BETTER TABLET LAYOUT */
+
+@media (max-width: 1400px) {
+
+    .hero-container {
+        gap: 40px;
+    }
+
+    .hero-title {
+        font-size: 58px;
+    }
+
+    .visual-card {
+        width: 280px;
+        height: 340px;
+    }
+
+    .form-card {
+        padding: 30px;
     }
 }
