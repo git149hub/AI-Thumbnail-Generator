@@ -243,6 +243,44 @@ const GenerateThumbnail = () => {
           </div>
         </div>
 
+{/* CENTER VISUAL */}
+
+<div className="hero-center">
+
+  <div className="ai-visual">
+
+    <div className="orb orb-one"></div>
+    <div className="orb orb-two"></div>
+
+    <div className="visual-card">
+
+      <div className="visual-header">
+        AI Thumbnail
+      </div>
+
+      <div className="visual-screen">
+
+        <div className="screen-glow"></div>
+
+        <div className="play-button">
+          ▶
+        </div>
+
+      </div>
+
+      <div className="visual-footer">
+
+        <div className="footer-line"></div>
+        <div className="footer-line short"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
         {/* RIGHT SIDE FORM */}
         <div className="hero-right">
 
