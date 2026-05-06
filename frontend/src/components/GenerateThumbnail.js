@@ -177,6 +177,7 @@ const GenerateThumbnail = () => {
 
   return (
     <div className="home-wrapper">
+    <div className="cinematic-lines"></div>
 
       {/* BACKGROUND GLOW */}
       <div className="background-glow glow-one"></div>
