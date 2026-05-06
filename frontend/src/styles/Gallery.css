@@ -1,4 +1,4 @@
-
+/* 
 .gallery-container {
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     justify-content: center;
-    max-width: 1400px; /* Ensures proper centering */
+    max-width: 1400px; 
     width: 100%;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .gallery-container h2 {
-    margin-bottom: 20px; /* Adds space below 'Gallery' heading */
+    margin-bottom: 20px; 
     font-size: 28px;
     text-align: center;
 }
@@ -35,7 +35,7 @@
 .thumbnail-card img {
     width: 100%;
     height: 300px;
-    object-fit: contain; /* ✅ Fixes stretching issue */
+    object-fit: contain; 
     border-radius: 8px;
     display: block;
 }
@@ -49,7 +49,7 @@
 .thumbnail-card small {
     color: #666;
     font-size: 14px;
-    display: block; /* Ensures timestamp is visible */
+    display: block; 
     margin-top: 5px;
 }
 
@@ -67,7 +67,7 @@
     padding: 5px;
     border-radius: 5px;
     position: absolute;
-    bottom: 120%; /* Position above the button */
+    bottom: 120%; 
     left: 50%;
     transform: translateX(-50%);
     font-size: 12px;
@@ -79,4 +79,284 @@
 .download-btn:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
+} */
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* MAIN CONTAINER */
+
+.gallery-container {
+    min-height: 100vh;
+
+    padding:
+        130px
+        50px
+        60px;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(139, 92, 246, 0.15),
+            transparent 25%),
+
+        radial-gradient(circle at bottom right,
+            rgba(59, 130, 246, 0.12),
+            transparent 25%),
+
+        #050816;
+
+    color: white;
+}
+
+/* TITLE */
+
+.gallery-container h2 {
+    font-size: 52px;
+    font-weight: 800;
+
+    margin-bottom: 50px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #8b5cf6,
+        #3b82f6
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 28px;
+
+    width: 100%;
+}
+
+/* CARD */
+
+.thumbnail-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(14px);
+
+    transition: all 0.35s ease;
+
+    cursor: pointer;
+}
+
+/* HOVER */
+
+.thumbnail-card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(139, 92, 246, 0.35);
+
+    box-shadow:
+        0 0 30px rgba(139, 92, 246, 0.18);
+}
+
+/* IMAGE */
+
+.thumbnail-card img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+
+    display: block;
+}
+
+.thumbnail-card:hover img {
+    transform: scale(1.05);
+}
+
+/* CONTENT */
+
+.thumbnail-card p {
+    font-size: 20px;
+    font-weight: 700;
+
+    color: white;
+
+    margin:
+        18px
+        20px
+        10px;
+}
+
+.thumbnail-card small {
+    display: block;
+
+    margin:
+        0
+        20px
+        20px;
+
+    color: #9ca3af;
+
+    font-size: 14px;
+}
+
+/* DOWNLOAD BUTTON */
+
+.download-btn {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    font-size: 20px;
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    transition: all 0.3s ease;
+}
+
+/* SHOW BUTTON ON HOVER */
+
+.thumbnail-card:hover .download-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* DOWNLOAD HOVER */
+
+.download-btn:hover {
+    background: rgba(139, 92, 246, 0.85);
+
+    transform: scale(1.1);
+}
+
+/* TOOLTIP */
+
+.tooltip-text {
+    visibility: hidden;
+
+    position: absolute;
+
+    top: 58px;
+    right: -25px;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    color: white;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.download-btn:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* LOADING */
+
+.gallery-container p {
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+    .gallery-container {
+        padding:
+            120px
+            25px
+            50px;
+    }
+
+    .gallery-container h2 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-container h2 {
+        font-size: 36px;
+    }
+
+    .thumbnail-card img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .gallery-container {
+        padding:
+            110px
+            18px
+            40px;
+    }
+
+    .gallery-container h2 {
+        font-size: 30px;
+    }
+
+    .thumbnail-card p {
+        font-size: 18px;
+    }
+
+    .download-btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
