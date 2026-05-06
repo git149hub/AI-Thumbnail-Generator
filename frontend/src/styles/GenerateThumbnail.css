@@ -1,4 +1,4 @@
-
+/* 
 .main-container {
     display: flex;
     flex-direction: column;
@@ -114,17 +114,17 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     display: block;
     margin: 0 auto;
-}
+} */
 
-.thumbnail-container {
+/* .thumbnail-container {
     position: relative;
-    /* Ensures button is positioned relative to this */
+
     display: inline-block;
     text-align: center;
     margin-top: 30px;
 
     width: 100%;
-    /* Ensure it takes full width */
+   
 
 }
 
@@ -189,7 +189,7 @@
     }
 }
 
-/* Ensure button adjusts properly on small screens */
+
 @media (max-width: 768px) {
     .generate-download-btn {
         bottom: 5px;
@@ -201,4 +201,494 @@
 
 .generate-download-btn {
     display: none;
+} */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b1020;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+/* MAIN CONTAINER */
+
+.main-container {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.18), transparent 30%),
+        #0b1020;
+
+    padding: 40px 6%;
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+
+.hero-section {
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 60px;
+}
+
+.hero-left {
+    flex: 1;
+}
+
+.hero-left h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: white;
+}
+
+.hero-left h1 span {
+    background: linear-gradient(90deg, #7c3aed, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-left p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cbd5e1;
+    max-width: 550px;
+    margin-bottom: 32px;
+}
+
+/* BADGES */
+
+.feature-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 12px 18px;
+
+    border-radius: 999px;
+
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 500;
+
+    backdrop-filter: blur(10px);
+}
+
+/* HERO RIGHT */
+
+.hero-right {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-right img {
+    width: 100%;
+    max-width: 650px;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(124, 58, 237, 0.12);
+
+    transition: transform 0.4s ease;
+}
+
+.hero-right img:hover {
+    transform: translateY(-6px);
+}
+
+/* RECENT SECTION */
+
+.recent-section {
+    margin-top: 80px;
+}
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+}
+
+/* GRID */
+
+.recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+}
+
+/* CARD */
+
+.recent-card {
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    transition: all 0.35s ease;
+
+    backdrop-filter: blur(10px);
+}
+
+.recent-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(124, 58, 237, 0.4);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(124, 58, 237, 0.15);
+}
+
+.recent-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.recent-card:hover img {
+    transform: scale(1.05);
+}
+
+.recent-info {
+    padding: 18px;
+}
+
+.recent-info h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.recent-info p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* GENERATOR SECTION */
+
+.generator-section {
+    margin-top: 110px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.generator-card {
+    width: 100%;
+    max-width: 760px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 30px;
+
+    padding: 50px;
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.generator-card h2 {
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* FORM */
+
+.thumbnail-form {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.thumbnail-form label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #e2e8f0;
+
+    font-weight: 500;
+}
+
+.thumbnail-form input,
+.thumbnail-form textarea {
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+.thumbnail-form input:focus,
+.thumbnail-form textarea:focus {
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 0 4px rgba(124, 58, 237, 0.15);
+}
+
+.thumbnail-form textarea {
+    min-height: 140px;
+    resize: none;
+}
+
+.thumbnail-form input::placeholder,
+.thumbnail-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* BUTTON */
+
+.thumbnail-form button {
+    width: 100%;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: linear-gradient(90deg, #7c3aed, #2563eb);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.thumbnail-form button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(124, 58, 237, 0.35);
+}
+
+.thumbnail-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* RESULT SECTION */
+
+.result-section {
+    margin-top: 100px;
+
+    text-align: center;
+}
+
+.result-section h2 {
+    font-size: 38px;
+    margin-bottom: 30px;
+}
+
+.thumbnail-container {
+    position: relative;
+
+    max-width: 900px;
+    margin: auto;
+}
+
+.thumbnail-image {
+    width: 100%;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* DOWNLOAD BUTTON */
+
+.generate-download-btn {
+    position: absolute;
+
+    right: 20px;
+    bottom: 20px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: white;
+
+    padding: 14px 18px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.generate-download-btn:hover {
+    background: rgba(124, 58, 237, 0.85);
+
+    transform: translateY(-2px);
+}
+
+/* ERROR */
+
+.error-message {
+    color: #f87171;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+
+        padding-top: 40px;
+    }
+
+    .hero-left p {
+        margin: auto auto 32px;
+    }
+
+    .feature-badges {
+        justify-content: center;
+    }
+
+    .hero-left h1 {
+        font-size: 52px;
+    }
+
+    .hero-right img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-container {
+        padding: 30px 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 42px;
+    }
+
+    .hero-left p {
+        font-size: 16px;
+    }
+
+    .section-header h2,
+    .generator-card h2,
+    .result-section h2 {
+        font-size: 30px;
+    }
+
+    .generator-card {
+        padding: 30px 22px;
+    }
+
+    .recent-card img {
+        height: 200px;
+    }
+
+    .generate-download-btn {
+        right: 12px;
+        bottom: 12px;
+
+        padding: 10px 14px;
+
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .hero-left h1 {
+        font-size: 34px;
+    }
+
+    .feature-badges {
+        gap: 10px;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+
+    .recent-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generator-card {
+        border-radius: 22px;
+    }
 }
