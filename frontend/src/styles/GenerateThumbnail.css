@@ -271,54 +271,14 @@ body {
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns:
-        1.1fr
-        0.8fr
-        0.95fr;
+    grid-template-columns: 1.2fr 0.85fr;
 
-    align-items: center;
+    gap: 70px;
 
-    gap: 40px;
-
-    min-height: calc(100vh - 120px);
+    align-items: start;
 }
 
-/* BETTER HERO BALANCING */
 
-.hero-container {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-/* LEFT */
-
-.hero-left {
-    flex: 1.1;
-}
-
-/* CENTER */
-
-.hero-center {
-    flex: 0.9;
-}
-
-/* RIGHT */
-
-.hero-right {
-    flex: 1;
-}
-
-/* BETTER FORM POSITION */
-
-.form-card {
-    margin-top: 20px;
-}
-
-/* BETTER FEATURE CARD SPACING */
-
-.feature-cards {
-    margin-top: 20px;
-}
 
 /* SMOOTHER ANIMATIONS */
 
@@ -338,8 +298,8 @@ body {
 /* LEFT SIDE */
 
 .hero-left {
-    flex: 1;
-    max-width: 700px;
+    position: relative;
+    max-width: 850px;
 }
 
 /* BADGE */
@@ -400,6 +360,17 @@ body {
     margin-bottom: 28px;
 }
 
+/* HERO ILLUSTRATION */
+
+.hero-illustration {
+    position: absolute;
+
+    top: 10px;
+    right: -40px;
+
+    transform: scale(0.9);
+}
+
 /* FEATURE TAGS */
 
 .feature-tags {
@@ -434,9 +405,9 @@ body {
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 18px;
+    gap: 22px;
 
-    margin-top: 25px;
+    margin-top: 140px;
 }
 
 .feature-card {
@@ -451,7 +422,7 @@ body {
 
     padding: 22px;
 
-    min-height: 230px;
+    min-height: 260px;
 
     backdrop-filter: blur(12px);
 
@@ -767,17 +738,7 @@ body {
     }
 }
 
-/* CENTER VISUAL */
 
-.hero-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    flex: 1;
-
-    position: relative;
-}
 
 /* AI VISUAL */
 
@@ -992,12 +953,7 @@ body {
 
 /* RESPONSIVE */
 
-@media (max-width: 1200px) {
 
-    .hero-center {
-        margin: 40px 0;
-    }
-}
 
 @media (max-width: 768px) {
 
