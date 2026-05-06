@@ -212,7 +212,7 @@
 
 body {
     margin: 0;
-    background: #050816;
+    background: #070b1f;
     font-family: "Segoe UI", sans-serif;
     overflow-x: hidden;
 }
@@ -225,15 +225,30 @@ body {
     width: 100%;
     padding: 120px 60px 60px;
     background:
-        radial-gradient(circle at top left,
-            rgba(139, 92, 246, 0.18),
-            transparent 30%),
-        radial-gradient(circle at bottom right,
-            rgba(59, 130, 246, 0.15),
-            transparent 30%),
-        #050816;
+    radial-gradient(
+        circle at top left,
+        rgba(139, 92, 246, 0.28),
+        transparent 35%
+    ),
 
-    overflow: hidden;
+    radial-gradient(
+        circle at center,
+        rgba(59, 130, 246, 0.14),
+        transparent 40%
+    ),
+
+    radial-gradient(
+        circle at bottom right,
+        rgba(99, 102, 241, 0.22),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #070b1f,
+        #050816,
+        #09061a
+    );
 }
 
 /* CINEMATIC ATMOSPHERIC GLOW */
@@ -252,7 +267,7 @@ body {
     background:
         radial-gradient(
             circle,
-            rgba(139, 92, 246, 0.18),
+            rgba(139, 92, 246, 0.32),
             transparent 70%
         );
 
@@ -277,7 +292,7 @@ body {
     background:
         radial-gradient(
             circle,
-            rgba(37, 99, 235, 0.14),
+            rgba(59, 130, 246, 0.24),
             transparent 70%
         );
 
@@ -439,6 +454,8 @@ body {
         #8b5cf6,
         #ec4899
     );
+    text-shadow:
+    0 0 25px rgba(139, 92, 246, 0.35);
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -501,7 +518,7 @@ body {
     position: relative;
     overflow: hidden;
 
-    background: rgba(17, 24, 39, 0.78);
+    background: rgba(9, 14, 30, 0.82);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -552,7 +569,7 @@ body {
 /* FORM CARD */
 
 .form-card {
-    background: rgba(17, 24, 39, 0.82);
+    background: rgba(10, 15, 35, 0.88);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -662,7 +679,7 @@ body {
     transform: translateY(-2px);
 
     box-shadow:
-        0 0 25px rgba(139, 92, 246, 0.4);
+       0 0 35px rgba(139, 92, 246, 0.55);
 }
 
 /* ERROR */
