@@ -426,6 +426,8 @@ body {
 }
 
 .feature-card {
+    position: relative;
+    overflow: hidden;
     background: rgba(255, 255, 255, 0.04);
 
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1016,4 +1018,128 @@ body {
     .form-card {
         padding: 30px;
     }
+}
+
+/* SMOOTH SCROLL */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* GLOBAL TRANSITIONS */
+
+input,
+textarea,
+button,
+a,
+.feature-card,
+.thumbnail-card,
+.visual-card {
+    transition:
+        all 0.3s ease;
+}
+
+/* BUTTON PRESS EFFECT */
+
+.thumbnail-form button:active {
+    transform: scale(0.98);
+}
+
+/* BETTER INPUT HOVER */
+
+.thumbnail-form input:hover,
+.thumbnail-form textarea:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+}
+
+/* HERO TITLE GLOW */
+
+.hero-title span {
+    filter:
+        drop-shadow(0 0 12px rgba(139, 92, 246, 0.35));
+}
+
+/* FEATURE CARD DEPTH */
+
+.feature-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.08),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+/* PREVIEW IMAGE HOVER */
+
+.thumbnail-image {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.thumbnail-image:hover {
+    transform: scale(1.01);
+
+    box-shadow:
+        0 0 60px rgba(139, 92, 246, 0.18);
+}
+
+/* FORM GLOW */
+
+.form-card:hover {
+    box-shadow:
+        0 0 50px rgba(139, 92, 246, 0.15);
+}
+
+/* VISUAL CARD GLOW */
+
+.visual-card:hover {
+    box-shadow:
+        0 0 70px rgba(139, 92, 246, 0.22);
+}
+
+/* TAG HOVER */
+
+.tag:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+
+    transform: translateY(-2px);
+}
+
+/* BETTER SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            180deg,
+            #8b5cf6,
+            #3b82f6
+        );
+
+    border-radius: 10px;
 }
