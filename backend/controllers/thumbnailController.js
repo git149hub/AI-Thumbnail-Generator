@@ -103,7 +103,7 @@ Style:
     const imageBlob = await hf.textToImage({
       // model: "stabilityai/stable-diffusion-xl-base-1.0",
      //  model: "black-forest-labs/FLUX.1-schnell",
-      model: "ideogram-ai/ideogram-4-fp8",
+      model: "black-forest-labs/FLUX.1-dev",
       inputs: prompt,
       parameters: {
         negative_prompt: `
