@@ -105,7 +105,7 @@ Style:
     const imageBlob = await hf.textToImage({
       // model: "stabilityai/stable-diffusion-xl-base-1.0",
      //  model: "black-forest-labs/FLUX.1-schnell",
-      model: "Qwen/Qwen-Image",
+      model: "stabilityai/stable-diffusion-3.5-large",
       inputs: prompt,
       parameters: {
         negative_prompt: `
