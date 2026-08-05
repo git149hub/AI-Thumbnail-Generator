@@ -1,9 +1,11 @@
 const Thumbnail = require("../models/Thumbnail");
-const { HfInference } = require("@huggingface/inference");
+// const { HfInference } = require("@huggingface/inference");
+const { InferenceClient } = require("@huggingface/inference");
 const OpenAI = require("openai");
 require("dotenv").config();
 
-const hf = new HfInference(process.env.HUGGING_FACE_TOKEN);
+// const hf = new HfInference(process.env.HUGGING_FACE_TOKEN);
+const hf = new InferenceClient(process.env.HUGGING_FACE_TOKEN);
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
