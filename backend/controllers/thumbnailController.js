@@ -1,11 +1,11 @@
 const Thumbnail = require("../models/Thumbnail");
-// const { HfInference } = require("@huggingface/inference");
-const { InferenceClient } = require("@huggingface/inference");
+const { HfInference } = require("@huggingface/inference");
+// const { InferenceClient } = require("@huggingface/inference");
 const OpenAI = require("openai");
 require("dotenv").config();
 
-// const hf = new HfInference(process.env.HUGGING_FACE_TOKEN);
-const hf = new InferenceClient(process.env.HUGGING_FACE_TOKEN);
+const hf = new HfInference(process.env.HUGGING_FACE_TOKEN);
+// const hf = new InferenceClient(process.env.HUGGING_FACE_TOKEN);
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -105,7 +105,6 @@ Style:
     const imageBlob = await hf.textToImage({
       // model: "stabilityai/stable-diffusion-xl-base-1.0",
      //  model: "black-forest-labs/FLUX.1-schnell",
-      provider: "fal",
       model: "stabilityai/stable-diffusion-3.5-large",
       inputs: prompt,
       parameters: {
