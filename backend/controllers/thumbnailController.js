@@ -1,3 +1,5 @@
+/*
+
 const Thumbnail = require("../models/Thumbnail");
 const { HfInference } = require("@huggingface/inference");
 // const { InferenceClient } = require("@huggingface/inference");
@@ -15,14 +17,25 @@ exports.generateThumbnail = async (req, res) => {
   try {
     const { movieName, actors, genre, description } = req.body;
 
+ 
+ 
+ */
+
+
+
     /* ---------------- OLD PROMPT ---------------- */
     
     // const prompt = `A high-quality YouTube thumbnail for a movie titled "${movieName}". 
     //                 Genre: ${genre}. Main actors: ${actors.join(", ")}.
     //                 Description: ${description}. Cinematic, vibrant, and engaging.`;
-    
+
+
+
 
     /* ---------------- MOVIE PROMPT ---------------- */
+
+
+/*
 
     const moviePrompt = `
 A viral YouTube thumbnail of a movie titled "${movieName}".
@@ -56,7 +69,13 @@ Style:
     Text:
     - Bold title "${movieName}" in large cinematic font ` ;
 
+
+*/    
+
     /* ---------------- CREATOR PROMPT ---------------- */
+
+
+/*
 
     const creatorPrompt = `
     Ultra realistic cinematic YouTube thumbnail,
@@ -75,14 +94,24 @@ Style:
     hyper realistic skin texture, 8k detailed, eye-catching.
     `;
 
+
+*/
     /* ---------------- SMART PROMPT SWITCH ---------------- */
+
+
+/*
 
     const prompt = actors.length > 1 ? moviePrompt : creatorPrompt;
 
     let imageUrl;
 
+
+*/    
+
      /* ---------------- TRY OPENAI FIRST ---------------- */
 
+
+/*
 
     try {
       const openaiResult = await openai.images.generate({
@@ -100,7 +129,15 @@ Style:
 
       console.log("⚠️ OpenAI failed — switching to HuggingFace");
 
+
+
+*/
+
+
        /* ---------------- HUGGINGFACE BACKUP ---------------- */
+
+
+/*
 
     const imageBlob = await hf.textToImage({
       // model: "stabilityai/stable-diffusion-xl-base-1.0",
@@ -145,5 +182,178 @@ Style:
   } catch (error) {
     console.error("Error generating thumbnail:", error);
     res.status(500).json({ success: false, error: "Failed to generate thumbnail" });
+  }
+};
+
+
+*/
+
+
+
+
+
+
+const Thumbnail = require("../models/Thumbnail");
+require("dotenv").config();
+
+exports.generateThumbnail = async (req, res) => {
+  try {
+    const { movieName, actors, genre, description } = req.body;
+
+    /* ---------------- MOVIE PROMPT ---------------- */
+
+    const moviePrompt = `
+A viral YouTube thumbnail of a movie titled "${movieName}".
+
+Main subject: ${actors[0]}, close-up face, highly detailed, sharp focus, intense emotional expression, looking at camera.
+
+Secondary characters: ${actors.slice(1).join(", ")}, smaller in background, slightly blurred, less detailed.
+
+Scene: ${description}
+
+Background:
+${genre} themed environment, cinematic lighting, depth of field.
+
+Face quality:
+- ultra detailed main face
+- sharp eyes in focus
+- realistic skin texture
+- no distortion
+
+Composition:
+- main face fills most of frame
+- background characters behind or side
+- depth of field separation
+
+Style:
+- hyper realistic
+- cinematic lighting
+- high contrast
+- shot with DSLR camera, 85mm portrait lens
+
+Text:
+- Bold title "${movieName}" in large cinematic font
+`;
+
+    /* ---------------- CREATOR PROMPT ---------------- */
+
+    const creatorPrompt = `
+Ultra realistic cinematic YouTube thumbnail,
+close-up expressive human face, dramatic lighting,
+high contrast, sharp focus, professional color grading,
+viral thumbnail composition.
+
+Main subject: a powerful expressive person related to the topic.
+Emotion: shocked, excited, intense, curious.
+
+Video topic:
+${description}
+
+Clean glowing background, strong subject separation,
+rim light around face, shallow depth of field,
+hyper realistic skin texture, 8k detailed, eye-catching.
+`;
+
+    /* ---------------- SMART PROMPT SWITCH ---------------- */
+
+    const prompt = actors.length > 1
+      ? moviePrompt
+      : creatorPrompt;
+
+    let imageUrl;
+
+    /* =====================================================
+       CLOUDFLARE WORKERS AI
+       ===================================================== */
+
+    try {
+      const response = await fetch(
+        `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/black-forest-labs/flux-1-schnell`,
+        {
+          method: "POST",
+
+          headers: {
+            "Authorization": `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            prompt: prompt,
+            steps: 4,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+
+        throw new Error(
+          `Cloudflare API error ${response.status}: ${errorText}`
+        );
+      }
+
+      const result = await response.json();
+
+      if (!result.success || !result.result?.image) {
+        throw new Error("Cloudflare did not return an image");
+      }
+
+      imageUrl =
+        `data:image/jpeg;base64,${result.result.image}`;
+
+      console.log(
+        "🔥 Image generated using Cloudflare Workers AI"
+      );
+
+    } catch (cloudflareError) {
+
+      console.error(
+        "❌ Cloudflare image generation failed:",
+        cloudflareError.message
+      );
+
+      throw cloudflareError;
+    }
+
+    /* =====================================================
+       SAVE TO MONGODB
+       ===================================================== */
+
+    console.log("🛠 Saving to MongoDB:", {
+      movieName,
+      actors,
+      genre,
+      description,
+    });
+
+    const newThumbnail = new Thumbnail({
+      movieName,
+      actors,
+      genre,
+      description,
+      imageUrl,
+      createdAt: new Date(),
+    });
+
+    await newThumbnail.save();
+
+    console.log("✅ Saved successfully!");
+
+    res.json({
+      success: true,
+      data: newThumbnail,
+    });
+
+  } catch (error) {
+
+    console.error(
+      "Error generating thumbnail:",
+      error
+    );
+
+    res.status(500).json({
+      success: false,
+      error: "Failed to generate thumbnail",
+    });
   }
 };
