@@ -267,21 +267,20 @@ hyper realistic skin texture, 8k detailed, eye-catching.
        ===================================================== */
 
   try {
-  const form = new FormData();
-
-  form.append("prompt", prompt);
-  form.append("guidance", "4");
-
   const response = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/black-forest-labs/flux-2-klein-4b`,
+    `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/black-forest-labs/flux-1-schnell`,
     {
       method: "POST",
 
       headers: {
         "Authorization": `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+        "Content-Type": "application/json",
       },
 
-      body: form,
+      body: JSON.stringify({
+        prompt: prompt,
+        steps: 4,
+      }),
     }
   );
 
@@ -299,10 +298,11 @@ hyper realistic skin texture, 8k detailed, eye-catching.
     throw new Error("Cloudflare did not return an image");
   }
 
-  imageUrl = `data:image/jpeg;base64,${result.result.image}`;
+  imageUrl =
+    `data:image/jpeg;base64,${result.result.image}`;
 
   console.log(
-    "🔥 Image generated using Cloudflare FLUX.2 Klein 4B"
+    "🔥 Image generated using Cloudflare Workers AI"
   );
 
 } catch (cloudflareError) {
